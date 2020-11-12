@@ -63,6 +63,11 @@ public class TimelineActivity extends AppCompatActivity {
             Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
             // Update the recycler view with the new tweet
 
+            // Modify data source of tweet
+            tweets.add(0, tweet);
+            // Update adapter
+            adapter.notifyItemInserted(0);
+            rvTweets.smoothScrollToPosition(0);
         }
     }
 
